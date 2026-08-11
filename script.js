@@ -1,5 +1,3 @@
-// 
-
 const modal = document.getElementById("modal");
 const enquireBtn = document.getElementById("enquireBtn");
 const closeModal = document.getElementById("closeModal");
@@ -15,8 +13,6 @@ function hideModal(){
   modal.setAttribute("aria-hidden","true");
 }
 
-// Enquiry button 
-
 enquireBtn.addEventListener("click", openModal);
 closeModal.addEventListener("click", hideModal);
 modal.addEventListener("click", (e) => {
@@ -29,8 +25,6 @@ document.addEventListener("keydown", (e) => {
 exploreBtn.addEventListener("click", () => {
   document.querySelector(".bottom-strip").scrollIntoView({behavior:"smooth"});
 });
-
-// Enquiry Form  
 
 enquiryForm.addEventListener("submit", (e) => {
   e.preventDefault();

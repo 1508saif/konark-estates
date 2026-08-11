@@ -129,7 +129,7 @@ button {
     gap: 36px;
 }
 
-/* new  */
+/* new  css fixed*/
 .main-nav a {
     position: relative;
 
@@ -176,81 +176,6 @@ button {
 .main-nav a.active {
     color: var(--gold);
 }
-
-/* Har navigation link ka normal style */
-
-/* .main-nav a {
-    position: relative;
-
-    display: flex;
-    align-items: center;
-
-    height: 100%;
-
-    padding: 0 0 5px;
-
-    font-size: 12px;
-    font-weight: 600;
-
-    color: #252525;
-    letter-spacing: 0.3px;
-
-    transition: color 0.2s ease;
-} */
-
-
-/* Hover karne par text gold */
-/* .main-nav a:hover {
-    color: var(--gold);
-} */
-
-
-/* Active page ka text gold */
-/* .main-nav a.active {
-    color: var(--gold);
-} */
-
-
-/*
-    Ye underline hai.
-
-    bottom: 0 nahi rakha hai,
-    kyunki usse line header ke bottom par chali jaati hai.
-
-    Ab line text ke bilkul neeche aayegi.
-*/
-/* .main-nav a::after {
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-    right: 0;
-
-    bottom: 0;
-
-    height: 2px;
-
-    background: var(--gold-light);
-
-    transform: scaleX(0);
-
-    transform-origin: center;
-
-    transition: transform 0.22s ease;
-} */
-
-
-/* Hover par line appear hogi */
-/* .main-nav a:hover::after {
-    transform: scaleX(1);
-} */
-
-
-/* Active page ki line permanently visible */
-/* .main-nav a.active::after {
-    transform: scaleX(1);
-} */
 
 /* -----------------------------
    Header right side

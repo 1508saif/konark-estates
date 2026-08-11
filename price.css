@@ -1,0 +1,704 @@
+:root{
+  --gold:#b4862e;
+  --gold-dark:#9b6e1d;
+  --gold-light:#d3b56f;
+  --ink:#151515;
+  --muted:#565656;
+  --cream:#f8f4ee;
+  --cream-2:#f2eee7;
+  --white:#fff;
+  --green:#09ad4d;
+  --border:#e7e1d8;
+  --shadow:0 8px 24px rgba(31,24,14,.08);
+  --radius:13px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  color:var(--ink);
+  background:var(--cream);
+  line-height:1.45;
+  overflow-x:hidden;
+}
+button,a,input,select{font:inherit}
+button,a{ -webkit-tap-highlight-color:transparent }
+a{text-decoration:none;color:inherit}
+button{cursor:pointer;border:0}
+svg{display:block;fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round}
+
+.container{width:min(1150px,calc(100% - 64px));margin:0 auto}
+
+/* HEADER */
+.site-header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  width:100%;
+  height:106px;
+  background:rgba(255,255,255,.98);
+  border-bottom:1px solid #eee;
+}
+.header-inner{
+  width:100%;
+  height:100%;
+  padding:0 25px;
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
+  align-items:center;
+  gap:20px;
+}
+.brand{
+  justify-self:start;
+  display:flex;
+  align-items:center;
+  min-width:235px;
+}
+.brand-logo{
+  width:255px;
+  height:85px;
+  object-fit:contain;
+  object-position:left center;
+  display:block;
+}
+   .main-nav {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 36px;
+}
+
+/* new  css fixed*/
+.main-nav a {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 8px 0 7px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #252525;
+    letter-spacing: 0.3px;
+}
+
+.main-nav a:hover {
+    color: var(--gold);
+}
+
+.main-nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    background: var(--gold-light);
+    transform: scaleX(0);
+    transition: transform 0.2s ease;
+}
+
+.main-nav a:hover::after,
+.main-nav a.active::after {
+    transform: scaleX(1);
+}
+
+.main-nav a.active {
+    color: var(--gold);
+}
+/* .main-nav{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:47px;
+  height:100%;
+}
+.main-nav a{
+  position:relative;
+  display:flex;
+  align-items:center;
+  height:100%;
+  color:#484848;
+  font-size:14px;
+  font-weight:700;
+  white-space:nowrap;
+  transition:color .2s ease;
+}
+.main-nav a:hover,.main-nav a.active{color:var(--gold-dark)}
+.main-nav a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:28px;
+  height:2px;
+   background:var(--gold);
+  transform:scaleX(1);
+  transform-origin:center;
+} */
+/* Hover For active golden line ;
+
+ */
+
+.nav-plus{display:none}
+.header-actions{
+  justify-self:end;
+  display:flex;
+  align-items:center;
+  gap:13px;
+}
+.whatsapp-btn{
+  width:48px;
+  height:44px;
+  border-radius:3px;
+  display:grid;
+  place-items:center;
+  background:#08aa4c;
+  color:#fff;
+}
+.whatsapp-btn svg{width:23px;height:23px;stroke:none}
+.enquire-btn{
+  min-width:143px;
+  height:44px;
+  padding:0 18px;
+  border-radius:3px;
+  color:#fff;
+  background:linear-gradient(180deg,#bf9032,#a8781f);
+  font-size:14px;
+  font-weight:800;
+  letter-spacing:.15px;
+  box-shadow:inset 0 1px rgba(255,255,255,.18);
+}
+.menu-toggle{display:none}
+
+/* INTRO */
+.intro-section{
+  display:none;
+}
+.pricing-section{
+  padding:39px 0 20px;
+  background:var(--cream);
+}
+.pricing-top{
+  display:grid;
+  grid-template-columns:minmax(0,1.15fr) minmax(460px,.9fr);
+  gap:45px;
+  align-items:center;
+}
+.eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  color:#9b711e;
+  font-size:14px;
+  font-weight:800;
+  letter-spacing:1.8px;
+}
+.eyebrow i{
+  display:inline-block;
+  width:29px;
+  height:2px;
+  background:var(--gold);
+}
+.pricing-heading h2{
+  margin-top:27px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:43px;
+  line-height:1.08;
+  letter-spacing:-1.2px;
+}
+.pricing-heading p{
+  margin-top:29px;
+  max-width:570px;
+  color:#505050;
+  font-size:17px;
+  line-height:1.7;
+}
+.feature-card{
+  min-height:137px;
+  background:#fff;
+  border:1px solid #ece7df;
+  border-radius:13px;
+  box-shadow:var(--shadow);
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  align-items:center;
+  padding:13px 17px;
+}
+.feature{
+  position:relative;
+  min-height:108px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:#151515;
+}
+.feature:not(:last-child)::after{
+  content:"";
+  position:absolute;
+  right:0;
+  top:12px;
+  bottom:12px;
+  width:1px;
+  background:#e8e4dc;
+}
+.feature svg{
+  width:40px;
+  height:40px;
+  color:var(--gold);
+  stroke-width:1.7;
+  margin-bottom:6px;
+}
+.feature strong{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:13px;
+  color:#171717;
+  line-height:1;
+}
+.feature b{
+  font-size:12px;
+  line-height:1.45;
+  margin-top:4px;
+}
+
+/* TABLE */
+.table-card{
+  margin-top:34px;
+  background:#fff;
+  border:1px solid #e4ded5;
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:0 3px 11px rgba(0,0,0,.04);
+}
+.pricing-table-wrap{
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+}
+.pricing-table{
+  width:100%;
+  min-width:850px;
+  border-collapse:collapse;
+  table-layout:fixed;
+}
+.pricing-table thead th{
+  height:53px;
+  background:#292723;
+  color:#fff;
+  font-size:14px;
+  font-weight:800;
+}
+.pricing-table th:nth-child(1){width:28%}
+.pricing-table th:nth-child(2){width:22%}
+.pricing-table th:nth-child(3){width:24%}
+.pricing-table th:nth-child(4){width:26%}
+.pricing-table td{
+  height:66px;
+  padding:9px 25px;
+  font-size:16px;
+  border-bottom:1px solid #f0ece5;
+  vertical-align:middle;
+}
+.pricing-table tbody tr:nth-child(even){background:#f8f4ee}
+.pricing-table tbody tr:last-child td{border-bottom:0}
+.pricing-table td:nth-child(2),.pricing-table td:nth-child(3){text-align:center}
+.pricing-table td:nth-child(4){text-align:center}
+.pricing-table td:first-child{
+  display:flex;
+  align-items:center;
+  gap:20px;
+}
+.tower-badge{
+  width:43px;
+  height:43px;
+  border-radius:3px;
+  object-fit:cover;
+  display:block;
+  flex:0 0 auto;
+}
+.price{
+  color:#aa7a1e;
+  font-weight:800;
+  font-size:17px !important;
+}
+.table-footer{
+  min-height:91px;
+  display:grid;
+  grid-template-columns:1.4fr .8fr 1.1fr;
+  align-items:center;
+  gap:12px;
+  padding:14px 23px;
+  border-top:1px solid #e9e4dc;
+}
+.cost-note{
+  display:flex;
+  align-items:center;
+  gap:13px;
+}
+.cost-note svg{
+  width:34px;
+  height:34px;
+  color:var(--gold);
+  stroke-width:1.6;
+  flex:0 0 auto;
+}
+.cost-note p{
+  font-size:13px;
+  color:#333;
+  line-height:1.55;
+}
+.download-btn,.whatsapp-wide{
+  height:57px;
+  border-radius:5px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  font-size:13px;
+  font-weight:800;
+  letter-spacing:.25px;
+}
+.download-btn{
+  border:2px solid #c8a661;
+  background:#fff;
+  color:#a77a23;
+}
+.download-btn svg{width:24px;height:24px;stroke-width:1.6}
+.whatsapp-wide{
+  background:#08ae4e;
+  color:#fff;
+}
+.whatsapp-wide svg{width:26px;height:26px;stroke:none}
+
+/* BENEFITS */
+.benefit-strip{
+  margin-top:28px;
+  min-height:90px;
+  background:#fff;
+  border:1px solid #e8e2d9;
+  border-radius:13px;
+  box-shadow:var(--shadow);
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  align-items:center;
+  overflow:hidden;
+}
+.benefit{
+  min-height:55px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:14px;
+  padding:8px 20px;
+}
+.benefit:not(:last-child){border-right:1px solid #ded9d0}
+.benefit svg{
+  width:34px;
+  height:34px;
+  color:var(--gold);
+  stroke-width:1.6;
+  flex:0 0 auto;
+}
+.benefit div{display:flex;flex-direction:column}
+.benefit strong{
+  font-size:12px;
+  line-height:1.25;
+}
+.benefit span{
+  color:#555;
+  font-size:11px;
+  margin-top:3px;
+}
+
+/* INFO */
+.info-section{
+  padding:90px 0;
+  background:#fff;
+}
+.info-section.alt{background:#f4eee4}
+.info-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:80px;
+  align-items:center;
+}
+.info-grid h2{
+  margin-top:22px;
+  max-width:560px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:39px;
+  line-height:1.15;
+}
+.info-grid p{
+  color:#555;
+  font-size:17px;
+  line-height:1.8;
+}
+
+/* FLOATING WHATSAPP */
+.floating-whatsapp{
+  position:fixed;
+  right:18px;
+  bottom:24px;
+  width:60px;
+  height:60px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:#08ae4e;
+  color:#fff;
+  box-shadow:0 8px 20px rgba(0,0,0,.18);
+  z-index:900;
+}
+.floating-whatsapp svg{width:31px;height:31px;stroke:none}
+
+/* MODAL */
+.modal{
+  position:fixed;
+  inset:0;
+  display:grid;
+  place-items:center;
+  padding:20px;
+  visibility:hidden;
+  opacity:0;
+  z-index:2000;
+  transition:opacity .2s ease,visibility .2s ease;
+}
+.modal.open{visibility:visible;opacity:1}
+.modal-backdrop{
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.52);
+}
+.modal-dialog{
+  position:relative;
+  width:min(460px,100%);
+  background:#fff;
+  border-radius:15px;
+  padding:34px;
+  box-shadow:0 24px 70px rgba(0,0,0,.25);
+  transform:translateY(12px);
+  transition:transform .2s ease;
+}
+.modal.open .modal-dialog{transform:translateY(0)}
+.modal-dialog h2{
+  margin-top:17px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:30px;
+}
+.modal-dialog>p{
+  color:#666;
+  margin:10px 0 22px;
+  font-size:14px;
+  line-height:1.6;
+}
+.modal-close{
+  position:absolute;
+  top:13px;
+  right:16px;
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  background:#f3efe8;
+  font-size:24px;
+  color:#444;
+}
+#enquiryForm{display:grid;gap:14px}
+#enquiryForm label{
+  display:grid;
+  gap:7px;
+  font-size:12px;
+  font-weight:800;
+  color:#333;
+}
+#enquiryForm input,#enquiryForm select{
+  width:100%;
+  height:45px;
+  border:1px solid #dcd5ca;
+  border-radius:6px;
+  padding:0 12px;
+  outline:none;
+  background:#fff;
+}
+#enquiryForm input:focus,#enquiryForm select:focus{border-color:var(--gold)}
+.submit-btn{
+  height:48px;
+  border-radius:5px;
+  color:#fff;
+  background:linear-gradient(180deg,#bf9032,#a8781f);
+  font-size:13px;
+  font-weight:800;
+}
+.form-success{
+  min-height:20px;
+  color:#118b45;
+  font-size:13px;
+  font-weight:700;
+}
+
+/* RESPONSIVE */
+@media (max-width:1100px){
+  .header-inner{padding:0 18px}
+  .main-nav{gap:25px}
+  .pricing-top{grid-template-columns:1fr}
+  .pricing-heading p{max-width:750px}
+  .feature-card{max-width:650px}
+  .table-footer{grid-template-columns:1fr 1fr}
+  .cost-note{grid-column:1/-1}
+}
+
+@media (max-width:850px){
+  .site-header{height:82px}
+  .header-inner{grid-template-columns:1fr auto;gap:10px}
+ .brand{min-width:0}
+  .brand-mark{width:39px;height:50px}
+  .brand-copy strong{font-size:17px;letter-spacing:1.5px}
+  .brand-copy small{font-size:7px;margin-top:6px}
+  .main-nav{
+    position:fixed;
+    top:82px;
+    left:0;
+    right:0;
+    height:auto;
+    padding:13px 20px 17px;
+    background:#fff;
+    border-bottom:1px solid #e8e1d8;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+    display:none;
+    flex-direction:column;
+    gap:0;
+    align-items:stretch;
+  }
+  .main-nav.open{display:flex}
+  .main-nav a{
+    height:48px;
+    justify-content:space-between;
+    align-items:center;
+    text-align:left;
+    padding:0 7px;
+  }
+  .main-nav a::after{
+    bottom:0;
+    left:0;
+    right:0;
+    height:2px;
+    transform:scaleX(1);
+  }
+  .nav-label{
+    text-align:left;
+  }
+  .nav-plus{
+    display:block;
+    color:var(--gold-dark);
+    font-size:25px;
+    font-weight:300;
+    line-height:1; 
+     width:25px;
+    text-align:right;
+  }
+  .header-actions{gap:8px}
+  .header-whatsapp{width:40px;height:40px}
+  .enquire-btn{min-width:auto;height:40px;padding:0 12px;font-size:11px}
+  .menu-toggle{
+    display:flex;
+    width:40px;
+    height:40px;
+    border:1px solid #ded7cb;
+    border-radius:4px;
+    background:#fff;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:4px;
+  }
+  .menu-toggle span{width:19px;height:2px;background:#333;border-radius:2px}
+  .container{width:min(100% - 34px,700px)}
+  .pricing-section{padding-top:28px}
+  .pricing-heading h2{font-size:35px}
+  .pricing-heading p{font-size:15px;line-height:1.6;margin-top:20px}
+  .feature-card{width:100%;grid-template-columns:repeat(4,1fr);padding:9px 4px}
+  .feature{min-height:94px}
+  .feature svg{width:31px;height:31px}
+  .feature b{font-size:9px}
+  .feature strong{font-size:11px}
+  .feature:not(:last-child)::after{top:9px;bottom:9px}
+  .table-card{margin-top:25px}
+  .table-footer{grid-template-columns:1fr}
+  .cost-note{grid-column:auto}
+  .download-btn,.whatsapp-wide{width:100%}
+  .benefit-strip{grid-template-columns:1fr 1fr}
+  .benefit{justify-content:flex-start;padding:15px 18px}
+  .benefit:nth-child(2){border-right:0}
+  .benefit:nth-child(-n+2){border-bottom:1px solid #ded9d0}
+  .info-grid{grid-template-columns:1fr;gap:25px}
+}
+
+@media (max-width:560px){
+  .site-header{height:74px}
+  .header-inner{padding:0 10px}
+  .brand-logo{width:175px;height:58px;object-position:left center}
+  .header-actions{gap:5px}
+  .header-whatsapp{width:35px;height:35px}
+  .header-whatsapp svg{width:19px;height:19px}
+  .enquire-btn{height:35px;padding:0 8px;font-size:9px}
+  .menu-toggle{width:35px;height:35px}
+  .pricing-section{padding-top:24px}
+  .container{width:calc(100% - 22px)}
+  .eyebrow{font-size:11px;letter-spacing:1.3px;gap:7px}
+  .eyebrow i{width:23px}
+  .pricing-heading h2{font-size:29px;letter-spacing:-.7px;margin-top:18px}
+  .pricing-heading p{font-size:13px;line-height:1.55;margin-top:14px}
+  .desktop-only{display:none}
+  .feature-card{
+    margin-top:22px;
+    min-height:auto;
+    padding:7px 0;
+    border-radius:10px;
+  }
+  .feature{min-height:82px}
+  .feature svg{width:27px;height:27px;margin-bottom:3px}
+  .feature strong{font-size:9px}
+  .feature b{font-size:7.5px;line-height:1.35}
+  .table-card{margin-top:18px;border-radius:9px}
+  .pricing-table{min-width:690px}
+  .pricing-table thead th{height:44px;font-size:11px}
+  .pricing-table td{
+    height:56px;
+    padding:6px 13px;
+    font-size:12px;
+  }
+  .pricing-table td:first-child{gap:10px}
+  .tower-badge{width:32px;height:32px;font-size:7px}
+  .tower-badge span{padding:2px 1px}
+  .price{font-size:13px !important}
+  .table-footer{padding:12px}
+  .cost-note{gap:9px}
+  .cost-note svg{width:28px;height:28px}
+  .cost-note p{font-size:10px;line-height:1.4}
+  .download-btn,.whatsapp-wide{height:48px;font-size:10px}
+  .download-btn svg{width:20px;height:20px}
+  .whatsapp-wide svg{width:22px;height:22px}
+  .benefit-strip{
+    margin-top:17px;
+    grid-template-columns:1fr 1fr;
+    border-radius:10px;
+  }
+  .benefit{min-height:67px;gap:8px;padding:9px 10px}
+  .benefit svg{width:27px;height:27px}
+  .benefit strong{font-size:8.5px}
+  .benefit span{font-size:7.5px;margin-top:2px}
+  .floating-whatsapp{width:52px;height:52px;right:13px;bottom:16px}
+  .floating-whatsapp svg{width:27px;height:27px}
+  .info-section{padding:60px 0}
+  .info-grid h2{font-size:29px}
+  .info-grid p{font-size:14px}
+  .modal-dialog{padding:28px 20px}
+  .modal-dialog h2{font-size:26px}
+}
+
+@media (max-width:390px){
+  .brand-logo{width:160px;height:53px}
+  .enquire-btn{display:none}
+  .pricing-heading h2{font-size:27px}
+  .feature b{font-size:7px}
+}
