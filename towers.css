@@ -1,0 +1,1951 @@
+
+/* 
+   1. BASIC RESET
+   Browser ki default spacing hata rahe hain.
+  */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* 
+   2. COMMON VARIABLES
+   Website ke important colors yahan rakhe hain.
+   Future mein color change karna ho to yahin se karo.
+*/
+
+:root {
+    --gold: #a77a22;
+    --gold-dark: #91681d;
+    --gold-light: #b58a38;
+
+    --black: #111111;
+    --text: #343434;
+
+    --cream: #faf8f2;
+    --white: #ffffff;
+
+    --border: #e5e1d8;
+    --card-border: #ece8df;
+
+    --green: #16b86a;
+}
+
+
+/* =========================================================
+   3. BODY
+   Ye poori website ka basic background/font control karta hai.
+   ========================================================= */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-width: 320px;
+
+    background: var(--cream);
+    color: var(--black);
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    overflow-x: hidden;
+}
+
+/* SVG ke path/circle kabhi clipping mein na jaaye */
+svg {
+    overflow: visible;
+}
+
+
+/* Links se default underline hata rahe hain. */
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* Buttons ke default font ko page ke font jaisa kar rahe hain. */
+
+button {
+    font: inherit;
+}
+
+
+/* header  */
+
+.site-header {
+    width: 100%;
+    min-height: 92px;
+
+    padding: 0 29px 0 68px;
+
+    background: var(--white);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 1px solid #ece9e2;
+
+    position: relative;
+    z-index: 100;
+}
+
+
+/* -----------------------------
+   Logo
+   ----------------------------- */
+
+.brand {
+    width: 255px;
+
+    display: block;
+
+    flex-shrink: 0;
+}
+
+.brand img {
+    width: 100%;
+    height: auto;
+
+    display: block;
+
+    object-fit: contain;
+}
+
+
+/* -----------------------------
+   Desktop Navigation
+   ----------------------------- */
+   .main-nav {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 36px;
+}
+
+/* new  */
+.main-nav a {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    padding: 8px 0 7px;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    color: #252525;
+    letter-spacing: 0.3px;
+}
+
+.main-nav a:hover {
+    color: var(--gold);
+}
+
+.main-nav a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+
+    bottom: 0;
+
+    height: 2px;
+
+    background: var(--gold-light);
+
+    transform: scaleX(0);
+
+    transition: transform 0.2s ease;
+}
+
+.main-nav a:hover::after,
+.main-nav a.active::after {
+    transform: scaleX(1);
+}
+
+.main-nav a.active {
+    color: var(--gold);
+}
+
+/* Har navigation link ka normal style */
+
+/* .main-nav a {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    height: 100%;
+
+    padding: 0 0 5px;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    color: #252525;
+    letter-spacing: 0.3px;
+
+    transition: color 0.2s ease;
+} */
+
+
+/* Hover karne par text gold */
+/* .main-nav a:hover {
+    color: var(--gold);
+} */
+
+
+/* Active page ka text gold */
+/* .main-nav a.active {
+    color: var(--gold);
+} */
+
+
+/*
+    Ye underline hai.
+
+    bottom: 0 nahi rakha hai,
+    kyunki usse line header ke bottom par chali jaati hai.
+
+    Ab line text ke bilkul neeche aayegi.
+*/
+/* .main-nav a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+
+    bottom: 0;
+
+    height: 2px;
+
+    background: var(--gold-light);
+
+    transform: scaleX(0);
+
+    transform-origin: center;
+
+    transition: transform 0.22s ease;
+} */
+
+
+/* Hover par line appear hogi */
+/* .main-nav a:hover::after {
+    transform: scaleX(1);
+} */
+
+
+/* Active page ki line permanently visible */
+/* .main-nav a.active::after {
+    transform: scaleX(1);
+} */
+
+/* -----------------------------
+   Header right side
+   ----------------------------- */
+
+.header-actions {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+}
+
+
+/* -----------------------------
+   Header WhatsApp
+   ----------------------------- */
+
+.top-whatsapp {
+    width: 44px;
+    height: 44px;
+
+    background: var(--green);
+
+    display: grid;
+    place-items: center;
+}
+
+
+.top-whatsapp svg {
+    width: 21px;
+    height: 21px;
+
+    fill: var(--white);
+}
+
+
+/* -----------------------------
+   Enquire button
+   ----------------------------- */
+
+.enquire-btn {
+    min-width: 143px;
+    height: 44px;
+
+    padding: 0 20px;
+
+    border: none;
+
+    background: linear-gradient(
+        135deg,
+        #b98b31,
+        #a9781e
+    );
+
+    color: var(--white);
+
+    font-size: 11px;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+
+/* Mouse hover par halka effect */
+
+.enquire-btn:hover {
+    opacity: 0.9;
+}
+
+
+/* Mobile menu button desktop par hidden */
+
+.menu-btn {
+    display: none;
+}
+
+
+/* =========================================================
+   5. MOBILE MENU
+   Default hidden hai.
+   JavaScript se .open class add hogi.
+   ========================================================= */
+
+.mobile-menu {
+    display: none;
+}
+
+
+/* =========================================================
+   6. MAIN PAGE
+   ========================================================= */
+
+.towers-page {
+    width: 100%;
+    max-width: 1280px;
+
+    margin: 0 auto;
+
+    padding: 61px 68px 70px;
+}
+
+
+/* =========================================================
+   7. INTRO SECTION
+   Left mein heading aur right mein feature box.
+   ========================================================= */
+
+.towers-intro {
+    display: grid;
+
+    grid-template-columns: 1.08fr 0.92fr;
+
+    align-items: start;
+
+    gap: 45px;
+}
+
+
+/* -----------------------------
+   Small gold eyebrow
+   ----------------------------- */
+
+.eyebrow {
+    display: flex;
+    align-items: center;
+
+    gap: 11px;
+
+    color: #a77a22;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+
+.eyebrow span {
+    width: 30px;
+    height: 2px;
+
+    background: var(--gold-light);
+
+    flex-shrink: 0;
+}
+
+
+/* -----------------------------
+   Main heading
+   ----------------------------- */
+
+.intro-content h1 {
+    margin-top: 24px;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: clamp(38px, 4vw, 48px);
+
+    line-height: 1.05;
+
+    letter-spacing: -1.8px;
+
+    font-weight: 700;
+}
+
+
+/* Heading ke neeche gold line */
+
+.gold-line {
+    width: 43px;
+    height: 2px;
+
+    margin-top: 24px;
+
+    background: var(--gold-light);
+}
+
+
+/* Intro paragraph */
+
+.intro-content p {
+    margin-top: 20px;
+
+    color: #3d3d3d;
+
+    font-size: 16px;
+
+    line-height: 1.55;
+}
+
+
+/* =========================================================
+   8. TOP FEATURE BOX
+   Screenshot mein right side jo white box hai.
+   ========================================================= */
+
+.feature-box {
+    min-height: 138px;
+
+    margin-top: 0;
+
+    padding: 18px 20px;
+
+    background: rgba(255, 255, 255, 0.78);
+
+    border-radius: 9px;
+
+    box-shadow:
+        0 8px 25px rgba(45, 37, 20, 0.06);
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    align-items: center;
+}
+
+
+.feature-item {
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    color: #171717;
+}
+
+
+/* Feature icon */
+
+.feature-item svg {
+    width: 42px;
+    height: 42px;
+
+    margin-bottom: 3px;
+
+    fill: none;
+
+    stroke: var(--gold-light);
+
+    stroke-width: 1.45;
+
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+
+/* Number */
+
+.feature-item strong {
+    color: #161616;
+
+    font-size: 14px;
+
+    line-height: 1;
+}
+
+
+/* Text */
+
+.feature-item span {
+    margin-top: 4px;
+
+    font-size: 11px;
+
+    line-height: 1.18;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   9. TOWER GRID
+   2 columns desktop par.
+   ========================================================= */
+
+.tower-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 25px 28px;
+
+    margin-top: 45px;
+}
+
+
+/* =========================================================
+   10. TOWER CARD
+   Har tower ka complete white card.
+   ========================================================= */
+
+.tower-card {
+    min-width: 0;
+
+    background: var(--white);
+
+    border: 1px solid var(--card-border);
+
+    border-radius: 8px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 3px 12px rgba(45, 37, 20, 0.055);
+}
+
+
+/* =========================================================
+   11. TOWER IMAGE AREA
+   Har card ke upper image section ki styling.
+   ========================================================= */
+
+.tower-image {
+    position: relative;
+
+    min-height: 258px;
+
+    overflow: hidden;
+
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    isolation: isolate;
+}
+
+
+/* -----------------------------
+   High Castle background
+   ----------------------------- */
+
+.tower-image.high-castle {
+    background-image: url("assets/tower-high-castle.jpg");
+
+    background-position: center right;
+}
+
+
+/* -----------------------------
+   Stellar background
+   ----------------------------- */
+
+.tower-image.stellar {
+    background-image: url("assets/tower-stellar.jpg");
+
+    background-position: center right;
+}
+
+
+/* -----------------------------
+   Astra background
+   ----------------------------- */
+
+.tower-image.astra {
+    background-image: url("assets/tower-astra.jpg");
+
+    background-position: center right;
+}
+
+
+/* -----------------------------
+   Orion background
+   ----------------------------- */
+
+.tower-image.orion {
+    background-image: url("assets/tower-orion.jpg");
+
+    background-position: center right;
+}
+
+
+/* =========================================================
+   12. IMAGE OVERLAY
+   Text readable rakhne ke liye left side dark/colored overlay.
+   ========================================================= */
+
+.tower-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: -1;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(77, 20, 27, 0.68) 0%,
+            rgba(77, 20, 27, 0.32) 38%,
+            rgba(77, 20, 27, 0.03) 72%
+        );
+}
+
+
+/* Stellar ka overlay */
+
+.stellar .tower-overlay {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(4, 55, 65, 0.78) 0%,
+            rgba(4, 55, 65, 0.38) 40%,
+            rgba(4, 55, 65, 0.04) 76%
+        );
+}
+
+
+/* Astra ka overlay */
+
+.astra .tower-overlay {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(55, 72, 40, 0.72) 0%,
+            rgba(55, 72, 40, 0.36) 42%,
+            rgba(55, 72, 40, 0.02) 78%
+        );
+}
+
+
+/* Orion ka overlay */
+
+.orion .tower-overlay {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(55, 40, 90, 0.76) 0%,
+            rgba(55, 40, 90, 0.40) 42%,
+            rgba(55, 40, 90, 0.05) 78%
+        );
+}
+
+
+/* =========================================================
+   13. TOWER IMAGE TEXT
+   ========================================================= */
+
+.tower-heading {
+    position: absolute;
+
+    left: 26px;
+    top: 25px;
+
+    color: var(--white);
+}
+
+
+/* Small KONNARK pill */
+
+.tower-label {
+    display: inline-flex;
+
+    align-items: center;
+
+    min-height: 29px;
+
+    padding: 0 13px;
+
+    border-radius: 20px;
+
+    background: rgba(255, 255, 255, 0.15);
+
+    border: 1px solid rgba(255, 255, 255, 0.14);
+
+    backdrop-filter: blur(4px);
+
+    font-size: 10px;
+
+    letter-spacing: 1.2px;
+
+    font-weight: 700;
+}
+
+
+/* Tower title */
+
+.tower-heading h2 {
+    margin-top: 14px;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 30px;
+
+    line-height: 1;
+
+    letter-spacing: -0.8px;
+}
+
+
+/* Tower tagline */
+
+.tower-heading em {
+    display: block;
+
+    margin-top: 17px;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 17px;
+
+    line-height: 1.35;
+
+    font-weight: 400;
+}
+
+
+/* =========================================================
+   14. BOTTOM PILL ON IMAGE
+   ========================================================= */
+
+.tower-type {
+    position: absolute;
+
+    left: 26px;
+    bottom: 20px;
+
+    min-height: 39px;
+
+    padding: 0 14px 0 5px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    color: var(--white);
+
+    background: rgba(35, 35, 35, 0.20);
+
+    border: 1px solid rgba(255, 255, 255, 0.17);
+
+    border-radius: 22px;
+
+    backdrop-filter: blur(4px);
+
+    font-size: 12px;
+
+    font-weight: 700;
+}
+
+
+/* Gold circular icon */
+
+.tower-type-icon {
+    width: 31px;
+    height: 31px;
+
+    border-radius: 50%;
+
+    background: #c49432;
+
+    display: grid;
+    place-items: center;
+}
+
+
+.tower-type-icon svg {
+    width: 18px;
+    height: 18px;
+
+    fill: none;
+
+    stroke: var(--white);
+
+    stroke-width: 1.4;
+
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+
+/* =========================================================
+   15. CARD CONTENT
+   ========================================================= */
+
+.tower-content {
+    padding: 20px 25px 13px;
+}
+
+
+/* Description */
+
+.tower-description {
+    min-height: 101px;
+
+    color: #3e3e3e;
+
+    font-size: 15px;
+
+    line-height: 1.55;
+}
+
+
+/* =========================================================
+   16. CARD DETAILS
+   ========================================================= */
+
+.tower-details {
+    min-height: 51px;
+
+    margin-top: 4px;
+
+    padding-top: 12px;
+
+    border-top: 1px solid #e2ded6;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 40px;
+}
+
+
+.tower-details > span {
+    display: flex;
+    align-items: center;
+
+    gap: 6px;
+
+    white-space: nowrap;
+
+    color: #3e3e3e;
+
+    font-size: 12px;
+}
+
+
+.tower-details svg {
+    width: 19px;
+    height: 19px;
+
+    flex-shrink: 0;
+
+    fill: none;
+
+    stroke: #a44c48;
+
+    stroke-width: 1.45;
+
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+
+.tower-details b {
+    color: #6c2724;
+
+    font-size: 13px;
+}
+
+
+/* Stellar/Astra/Orion checklist icon */
+
+.tower-details.checklist svg {
+    stroke: #4c9e99;
+}
+
+
+.tower-details.checklist b {
+    color: #177b79;
+}
+
+
+/* =========================================================
+   17. CARD ACTIONS
+   ========================================================= */
+
+.tower-actions {
+    min-height: 57px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+}
+
+
+/* WhatsApp for price */
+
+.price-btn {
+    min-height: 46px;
+
+    padding: 0 18px;
+
+    border: 1.5px solid #54c58f;
+
+    border-radius: 24px;
+
+    background: var(--white);
+
+    color: #158453;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 7px;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 0.4px;
+
+    cursor: pointer;
+
+    white-space: nowrap;
+}
+
+
+.price-btn:hover {
+    background: #f1fbf6;
+}
+
+
+/* WhatsApp icon */
+
+.price-btn svg {
+    width: 18px;
+    height: 18px;
+
+    fill: #20aa6b;
+}
+
+
+/* Floor plan */
+
+.floor-btn {
+    border: none;
+
+    background: transparent;
+
+    color: #111;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    white-space: nowrap;
+}
+
+
+.floor-btn span {
+    font-size: 24px;
+
+    font-weight: 400;
+
+    line-height: 1;
+}
+
+
+/* =========================================================
+   18. FLOATING WHATSAPP
+   ========================================================= */
+
+.floating-whatsapp {
+    position: fixed;
+
+    right: 24px;
+    bottom: 22px;
+
+    width: 61px;
+    height: 61px;
+
+    border-radius: 50%;
+
+    background: #16bd6b;
+
+    display: grid;
+    place-items: center;
+
+    box-shadow:
+        0 7px 20px rgba(0, 0, 0, 0.16);
+
+    z-index: 90;
+}
+
+
+.floating-whatsapp svg {
+    width: 31px;
+    height: 31px;
+
+    fill: var(--white);
+}
+
+
+/* =========================================================
+   19. MODAL
+   Enquire button click karne par ye open hoga.
+   ========================================================= */
+
+.modal {
+    position: fixed;
+
+    inset: 0;
+
+    padding: 20px;
+
+    background: rgba(0, 0, 0, 0.5);
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    z-index: 200;
+}
+
+
+.modal.open {
+    display: flex;
+}
+
+
+.modal-card {
+    position: relative;
+
+    width: min(440px, 100%);
+
+    padding: 35px;
+
+    background: var(--white);
+
+    border-radius: 9px;
+
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.25);
+}
+
+
+/* Modal close */
+
+.modal-close {
+    position: absolute;
+
+    top: 9px;
+    right: 15px;
+
+    border: none;
+
+    background: transparent;
+
+    font-size: 31px;
+
+    cursor: pointer;
+}
+
+
+/* Modal eyebrow */
+
+.modal-eyebrow {
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    color: var(--gold);
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.8px;
+}
+
+
+.modal-eyebrow span {
+    width: 25px;
+    height: 2px;
+
+    background: var(--gold-light);
+}
+
+
+.modal-card h3 {
+    margin-top: 17px;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 29px;
+
+    line-height: 1.15;
+}
+
+
+.modal-card p {
+    margin-top: 11px;
+
+    color: #555;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+}
+
+
+#enquiryForm {
+    margin-top: 21px;
+
+    display: grid;
+
+    gap: 11px;
+}
+
+
+#enquiryForm input {
+    width: 100%;
+    height: 48px;
+
+    padding: 0 14px;
+
+    border: 1px solid #ddd;
+
+    outline: none;
+
+    font-size: 14px;
+}
+
+
+#enquiryForm input:focus {
+    border-color: var(--gold);
+}
+
+
+#enquiryForm button {
+    min-height: 49px;
+
+    border: none;
+
+    background: var(--gold);
+
+    color: var(--white);
+
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   20. TABLET RESPONSIVE
+   1100px ke neeche layout ko adjust kar rahe hain.
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+    .site-header {
+        padding: 0 25px;
+    }
+
+    .brand {
+        width: 220px;
+    }
+
+    .main-nav {
+        gap: 22px;
+    }
+
+    .towers-page {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    .towers-intro {
+        gap: 30px;
+    }
+
+    .tower-grid {
+        gap: 20px;
+    }
+
+    .tower-content {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .tower-details {
+        gap: 18px;
+    }
+
+}
+
+
+/* =========================================================
+   21. TABLET / SMALL LAPTOP
+   900px ke neeche.
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .site-header {
+        min-height: 78px;
+    }
+
+    /* Header nav ki jagah mobile menu button */
+
+    .main-nav {
+        display: none;
+    }
+
+    .menu-btn {
+        width: 42px;
+        height: 42px;
+
+        border: 1px solid #ddd;
+
+        background: var(--white);
+
+        display: flex;
+
+        flex-direction: column;
+
+        justify-content: center;
+
+        align-items: center;
+
+        gap: 5px;
+
+        cursor: pointer;
+    }
+
+    .menu-btn span {
+        width: 20px;
+        height: 2px;
+
+        background: #222;
+    }
+
+
+    /* Mobile menu */
+
+    .mobile-menu {
+        position: fixed;
+
+        top: 92px;
+        left: 0;
+        right: 0;
+
+        padding: 20px;
+
+        background: var(--white);
+
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.10);
+
+        display: none;
+
+        flex-direction: column;
+
+        gap: 0;
+
+        z-index: 99;
+    }
+
+    .mobile-menu.open {
+        display: flex;
+    }
+
+    .mobile-menu a {
+        padding: 15px 5px;
+
+        border-bottom: 1px solid #eee;
+
+        font-size: 13px;
+
+        font-weight: 700;
+    }
+
+    .mobile-enquire {
+        min-height: 46px;
+
+        margin-top: 15px;
+
+        border: none;
+
+        background: var(--gold);
+
+        color: var(--white);
+
+        font-weight: 700;
+    }
+
+
+    /* Intro one column */
+
+    .towers-intro {
+        grid-template-columns: 1fr;
+    }
+
+    .feature-box {
+        max-width: 650px;
+    }
+
+}
+
+
+/* =========================================================
+   22. MOBILE
+   700px ke neeche actual mobile layout.
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    /* -----------------------------
+       Header
+       ----------------------------- */
+
+    .site-header {
+        min-height: 76px;
+
+        padding: 0 14px;
+    }
+
+    .brand {
+        width: 178px;
+    }
+
+    .header-actions {
+        gap: 6px;
+    }
+
+    .top-whatsapp {
+        width: 39px;
+        height: 39px;
+    }
+
+    .top-whatsapp svg {
+        width: 19px;
+        height: 19px;
+    }
+
+    .enquire-btn {
+        display: none;
+    }
+
+    .menu-btn {
+        width: 39px;
+        height: 39px;
+    }
+
+
+    /* Mobile menu top header ke neeche */
+
+    .mobile-menu {
+        top: 76px;
+    }
+
+
+    /* -----------------------------
+       Main page spacing
+       ----------------------------- */
+
+    .towers-page {
+        padding: 34px 16px 55px;
+    }
+
+
+    /* -----------------------------
+       Intro
+       ----------------------------- */
+
+    .towers-intro {
+        gap: 28px;
+    }
+
+    .eyebrow {
+        gap: 8px;
+
+        font-size: 9px;
+
+        letter-spacing: 1.45px;
+
+        line-height: 1.4;
+    }
+
+    .eyebrow span {
+        width: 23px;
+    }
+
+
+    .intro-content h1 {
+        margin-top: 17px;
+
+        font-size: clamp(34px, 9.7vw, 43px);
+
+        line-height: 1.06;
+
+        letter-spacing: -1.3px;
+    }
+
+
+    .gold-line {
+        margin-top: 18px;
+    }
+
+
+    .intro-content p {
+        margin-top: 17px;
+
+        font-size: 14px;
+
+        line-height: 1.55;
+    }
+
+
+    .desktop-only {
+        display: none;
+    }
+
+
+    /* -----------------------------
+       Feature box
+       ----------------------------- */
+
+    .feature-box {
+        min-height: 110px;
+
+        padding: 13px 8px;
+
+        border-radius: 8px;
+
+        grid-template-columns: repeat(4, 1fr);
+
+        gap: 4px;
+    }
+
+    .feature-item svg {
+        width: 31px;
+        height: 31px;
+
+        margin-bottom: 4px;
+    }
+
+    .feature-item strong {
+        font-size: 10px;
+    }
+
+    .feature-item span {
+        font-size: 8px;
+    }
+
+
+    /* -----------------------------
+       Tower grid
+       ----------------------------- */
+
+    .tower-grid {
+        grid-template-columns: 1fr;
+
+        gap: 22px;
+
+        margin-top: 30px;
+    }
+
+
+    /* -----------------------------
+       Tower image
+       ----------------------------- */
+
+    .tower-image {
+        min-height: 245px;
+    }
+
+
+    .tower-heading {
+        left: 20px;
+        top: 20px;
+    }
+
+
+    .tower-label {
+        min-height: 26px;
+
+        padding: 0 10px;
+
+        font-size: 9px;
+    }
+
+
+    .tower-heading h2 {
+        margin-top: 12px;
+
+        font-size: 27px;
+    }
+
+
+    .tower-heading em {
+        margin-top: 13px;
+
+        font-size: 15px;
+    }
+
+
+    .tower-type {
+        left: 18px;
+        bottom: 16px;
+
+        min-height: 36px;
+
+        padding-right: 11px;
+
+        font-size: 10px;
+    }
+
+
+    .tower-type-icon {
+        width: 29px;
+        height: 29px;
+    }
+
+    .tower-type-icon svg {
+        width: 16px;
+        height: 16px;
+    }
+
+
+    /* -----------------------------
+       Tower content
+       ----------------------------- */
+
+    .tower-content {
+        padding: 17px 17px 11px;
+    }
+
+
+    .tower-description {
+        min-height: auto;
+
+        font-size: 13px;
+
+        line-height: 1.55;
+    }
+
+
+    /* -----------------------------
+       Tower details
+       ----------------------------- */
+
+    .tower-details {
+        margin-top: 13px;
+
+        padding-top: 12px;
+
+        gap: 15px;
+
+        flex-wrap: wrap;
+    }
+
+
+    .tower-details > span {
+        font-size: 10px;
+
+        gap: 5px;
+    }
+
+
+    .tower-details b {
+        font-size: 11px;
+    }
+
+
+    .tower-details svg {
+        width: 17px;
+        height: 17px;
+    }
+
+
+    /* -----------------------------
+       Card buttons
+       ----------------------------- */
+
+    .tower-actions {
+        margin-top: 6px;
+
+        min-height: 58px;
+
+        gap: 8px;
+    }
+
+
+    .price-btn {
+        min-height: 43px;
+
+        padding: 0 13px;
+
+        font-size: 9px;
+
+        letter-spacing: 0.2px;
+    }
+
+
+    .price-btn svg {
+        width: 16px;
+        height: 16px;
+    }
+
+
+    .floor-btn {
+        font-size: 10px;
+
+        gap: 8px;
+    }
+
+
+    .floor-btn span {
+        font-size: 21px;
+    }
+
+
+    /* -----------------------------
+       Floating WhatsApp
+       ----------------------------- */
+
+    .floating-whatsapp {
+        width: 54px;
+        height: 54px;
+
+        right: 15px;
+        bottom: 15px;
+    }
+
+    .floating-whatsapp svg {
+        width: 27px;
+        height: 27px;
+    }
+
+
+    /* -----------------------------
+       Modal
+       ----------------------------- */
+
+    .modal {
+        padding: 15px;
+    }
+
+    .modal-card {
+        padding: 28px 20px;
+    }
+
+    .modal-card h3 {
+        font-size: 25px;
+    }
+
+}
+
+
+/* =========================================================
+   23. SMALL MOBILE
+   400px se neeche.
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+    .brand {
+        width: 155px;
+    }
+
+    .top-whatsapp {
+        width: 36px;
+        height: 36px;
+    }
+
+    .menu-btn {
+        width: 36px;
+        height: 36px;
+    }
+
+    .towers-page {
+        padding-left: 13px;
+        padding-right: 13px;
+    }
+
+    .feature-box {
+        min-height: 103px;
+    }
+
+    .feature-item svg {
+        width: 28px;
+        height: 28px;
+    }
+
+    .feature-item strong {
+        font-size: 9px;
+    }
+
+    .feature-item span {
+        font-size: 7px;
+    }
+
+    .tower-image {
+        min-height: 225px;
+    }
+
+    .tower-heading h2 {
+        font-size: 25px;
+    }
+
+    .tower-heading em {
+        font-size: 14px;
+    }
+
+    .tower-type {
+        font-size: 9px;
+    }
+
+    .price-btn {
+        padding-left: 10px;
+        padding-right: 10px;
+
+        font-size: 8px;
+    }
+
+    .floor-btn {
+        font-size: 9px;
+    }
+
+}
+
+
+/* =========================================================
+   24. VERY SMALL MOBILE
+   350px ke aas-paas.
+   ========================================================= */
+
+@media (max-width: 350px) {
+
+    .brand {
+        width: 142px;
+    }
+
+    .header-actions {
+        gap: 4px;
+    }
+
+    .feature-box {
+        padding-left: 4px;
+        padding-right: 4px;
+    }
+
+    .tower-heading {
+        left: 15px;
+    }
+
+    .tower-type {
+        left: 14px;
+    }
+
+    .tower-content {
+        padding-left: 13px;
+        padding-right: 13px;
+    }
+
+    .tower-actions {
+        flex-direction: column;
+
+        align-items: stretch;
+
+        padding-bottom: 8px;
+    }
+
+    .price-btn {
+        width: 100%;
+    }
+
+    .floor-btn {
+        justify-content: center;
+    }
+
+}
+
+
+/* =========================================================
+   25. REDUCED MOTION
+   Agar user ke device mein animation kam karne ki setting hai
+   to unnecessary transitions avoid honge.
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+
+/* =========================================================
+   26. NAVIGATION FOCUS
+   Keyboard se tab karne par bhi clear indicator rahe.
+   ========================================================= */
+
+.main-nav a:focus-visible {
+    outline: none;
+}
+
+.main-nav a:focus-visible::after {
+    transform: scaleX(1);
+}
+
+
+/* =========================================================
+   27. CARD HOVER
+   Desktop par subtle effect, mobile par unnecessary nahi.
+   ========================================================= */
+
+@media (min-width: 901px) {
+
+    .tower-card {
+        transition:
+            transform 0.25s ease,
+            box-shadow 0.25s ease;
+    }
+
+    .tower-card:hover {
+        transform: translateY(-3px);
+
+        box-shadow:
+            0 12px 30px rgba(45, 37, 20, 0.10);
+    }
+
+}
+
+
+/* =========================================================
+   28. HIGH-DPI / SHARP IMAGE HANDLING
+   Images stretch nahi hongi.
+   ========================================================= */
+
+.tower-image {
+    background-color: #ddd;
+    backface-visibility: hidden;
+}
+
+.tower-image::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   29. EXTRA MOBILE SAFETY
+   Kisi bhi element ki wajah se horizontal scroll na aaye.
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .towers-page,
+    .towers-intro,
+    .tower-grid,
+    .tower-card,
+    .tower-content,
+    .feature-box {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .tower-image {
+        width: 100%;
+        min-height: 245px;
+    }
+
+    .tower-heading {
+        max-width: 58%;
+    }
+
+    .tower-type {
+        max-width: calc(100% - 36px);
+    }
+
+    .tower-type {
+        white-space: nowrap;
+    }
+
+    .tower-details > span {
+        min-width: 0;
+    }
+
+}
